@@ -1,0 +1,52 @@
+﻿@model WebStoreCursoMVC.Models.Producto
+
+<h3> Producto: @Model.nombre  Fecha: @ViewBag.Fecha </h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(Model => Model.categoria.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(Model => Model.categoria.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imagen)
+        </dt>
+
+        <dd>
+            <img width="500" src="@Url.Action("GetImage","Producto", new { id=@Model.productoID})">
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precioLista)
+        </dt>
+
+        <dd>
+            $ @Html.DisplayFor(model => model.precioLista)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.productoID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
